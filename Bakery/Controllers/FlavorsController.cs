@@ -1,13 +1,13 @@
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using Bakery.Models;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using Bakery.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bakery.Controllers
 {
@@ -33,7 +33,6 @@ namespace Bakery.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
       return View();
     }
 
