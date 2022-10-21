@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SweetSavory.Models;
+using Bakery.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace SweetSavory
+namespace Bakery
 {
   public class Startup
   {
@@ -26,11 +26,11 @@ namespace SweetSavory
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<SweetSavoryContext>(options => options
+        .AddDbContext<BakeryContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
     
       services.AddIdentity<ApplicationUser, IdentityRole>()
-          .AddEntityFrameworkStores<SweetSavoryContext>()
+          .AddEntityFrameworkStores<BakeryContext>()
           .AddDefaultTokenProviders();
 
 //===================Update when done===========================
