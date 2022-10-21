@@ -1,0 +1,17 @@
+
+@{
+  Layout = "_Layout";
+}
+
+@model Bakery.Models.Flavor
+
+<h4>Add a Flavor</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+
+    <input type="submit" value="Add" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Home", "Index", "Home", null, new{@class="btn btn-secondary"})</p>

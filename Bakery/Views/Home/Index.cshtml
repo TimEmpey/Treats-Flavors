@@ -1,0 +1,42 @@
+@using System.Collections.Generic;
+
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models;
+
+<div class="form">
+  <div class="flavors">
+    <h2>@Html.ActionLink("Flavors", "Index", "Flavors") | @Html.ActionLink("New Flavor", "Create", "Flavors")</h2>
+
+    @if (@ViewBag.Flavor.Count == 0)
+    {
+      <h3>No flavors have been added yet!</h3>
+    } 
+
+    <ul>
+      @foreach(Flavor flavor in ViewBag.Flavor)
+      {
+        <p>@Html.ActionLink($"{flavor.Name}", "Details", "Flavors", new { id = flavor.FlavorId })</p>
+      }
+    </ul>  
+  </div>
+
+
+  <div class="treats">
+    <h2>@Html.ActionLink("Treats", "Index", "Treats") | @Html.ActionLink("New Treat", "Create", "Treats")</h2>
+
+    @if (@ViewBag.Treat.Count == 0)
+    {
+      <h3>No treats have been added yet!</h3>
+    } 
+
+    <ul>
+      @foreach (Treat treat in ViewBag.Treat)
+      {
+        <p>@Html.ActionLink($"{treat.Name}", "Details", "Treats", new { id = treat.TreatId })</p>
+      } 
+    </ul>  
+  </div>
+</div>

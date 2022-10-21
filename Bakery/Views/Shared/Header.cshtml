@@ -1,7 +1,7 @@
 <div id="header">
   @using (Html.BeginForm("LogOff", "Account"))
   {
-    @Html.ActionLink("All Books", "Index", "Books", null, new{@class="btn btn-link headbtn"})
+    @Html.ActionLink("Home", "Index", "Home", null, new{@class="btn btn-link headbtn"})
   
     @if (User.Identity.IsAuthenticated)
     {
