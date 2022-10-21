@@ -90,6 +90,13 @@ namespace Bakery.Controllers
     [HttpPost]
     public ActionResult AddTreat(Flavor flavor, int TreatId)
     {
+      _db.Entry(flavor).State = EntityState.Modified;
+      _db.SaveChanges();
+      foreach(FlavorTreat join in _db.FlavorTreat)
+      if(flavor.FlavorId == join.FlavorId && TreatId == join.FlavorId)
+				{
+					return RedirectToAction("Details", new {id = flavor.FlavorId});
+				}
       if (TreatId != 0)
       {
       _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });

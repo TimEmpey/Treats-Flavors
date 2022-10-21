@@ -97,12 +97,19 @@ namespace Bakery.Controllers
     [HttpPost]
     public ActionResult AddFlavor(Treat treat, int FlavorId)
     {
-      if (FlavorId != 0)
-      {
-      _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
-      }
+      _db.Entry(treat).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index", "Home");
+      foreach(FlavorTreat join in _db.FlavorTreat)
+      if(treat.TreatId == join.TreatId && FlavorId == join.FlavorId)
+				{
+					return RedirectToAction("Details", new {id = treat.TreatId});
+				}
+			if (FlavorId != 0)
+			{
+				_db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId});
+				_db.SaveChanges();
+			}
+			return RedirectToAction("Details", new {id = treat.TreatId});
     }
 
     public ActionResult Delete(int id)
