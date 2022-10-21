@@ -49,7 +49,7 @@ namespace Bakery.Controllers
         _db.FlavorTreat.Add(new FlavorTreat() {TreatId = TreatId, FlavorId = flavor.FlavorId});
       }
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
 
     public ActionResult Details(int id)
@@ -77,7 +77,7 @@ namespace Bakery.Controllers
       }
       _db.Entry(flavor).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
 
     public ActionResult AddTreat(int id)
@@ -95,7 +95,7 @@ namespace Bakery.Controllers
       _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });
       }
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
 
     public ActionResult Delete(int id)
@@ -110,7 +110,7 @@ namespace Bakery.Controllers
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
       _db.Flavors.Remove(thisFlavor);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return View(thisFlavor);
     }
 
     [HttpPost]
@@ -119,7 +119,7 @@ namespace Bakery.Controllers
       var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
       _db.FlavorTreat.Remove(joinEntry);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
   }
 }

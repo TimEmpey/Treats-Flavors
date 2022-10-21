@@ -15,8 +15,8 @@
   @Html.LabelFor(model => model.Name)
   @Html.EditorFor(model => model.Name)
 
-  @Html.Label("Select flavor")
-  @Html.DropDownList("FlavorId")
+  @Html.LabelFor(model => model.Calories)
+  @Html.EditorFor(model => model.Calories)
 
   <input type="submit" value="Save" />
 }

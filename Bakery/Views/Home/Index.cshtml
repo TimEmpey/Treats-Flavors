@@ -8,7 +8,7 @@
 
 <div class="form">
   <div class="flavors">
-    <h2>@Html.ActionLink("Flavors", "Index", "Flavors") | @Html.ActionLink("New Flavor", "Create", "Flavors")</h2>
+    <h2>Flavors | @Html.ActionLink("Create", "Create", "Flavors")</h2>
 
     @if (@ViewBag.Flavor.Count == 0)
     {
@@ -25,7 +25,7 @@
 
 
   <div class="treats">
-    <h2>@Html.ActionLink("Treats", "Index", "Treats") | @Html.ActionLink("New Treat", "Create", "Treats")</h2>
+    <h2>Treats | @Html.ActionLink("Create", "Create", "Treats")</h2>
 
     @if (@ViewBag.Treat.Count == 0)
     {

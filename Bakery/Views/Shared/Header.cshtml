@@ -5,8 +5,7 @@
   
     @if (User.Identity.IsAuthenticated)
     {
-      <span> | </span>@Html.ActionLink("Your Books", "Details", "Account", null, new{@class="btn btn-link headbtn"}) <span> | </span>
-
+      <span> | </span>
       @Html.ActionLink("Account", "Index", "Account", null, new{@class="btn btn-link headbtn"})<span> | </span>
 
       <input type="submit" value="Log out" class="btn btn-link" /> 
